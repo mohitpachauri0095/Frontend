@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated Resume</title>
+  <style>
+  
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4, #a18cd1, #fbc2eb);
+      background-size: 400% 400%;
+      animation: gradientShift 12s ease infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      color: #151414;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+
+    .resume {
+      width: 80%;
+      max-width: 900px;
+      background: #ffffffdd;
+      display: flex;
+      border-radius: 15px;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+    }
+
+
+    .left {
+      width: 35%;
+      background: linear-gradient(160deg, #4a90e2, #7b4397);
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+
+    .left img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 4px solid white;
+      margin-bottom: 20px;
+      object-fit: cover;
+      animation: rotatePhoto 10s linear infinite;
+    }
+
+    @keyframes rotatePhoto {
+      0% { transform: rotate(0deg); }
+      50% { transform: rotate(180deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .left h2 {
+      font-size: 22px;
+      margin-bottom: 5px;
+    }
+
+    .left p {
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+
+    .contact, .skills {
+      margin-top: 25px;
+      text-align: left;
+      width: 100%;
+    }
+
+    .contact h3, .skills h3 {
+      border-bottom: 2px solid white;
+      display: inline-block;
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+
+    .contact p, .skills li {
+      font-size: 14px;
+      margin: 5px 0;
+    }
+
+    .skills ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .skills li {
+      background: rgba(255,255,255,0.25);
+      padding: 6px 10px;
+      border-radius: 8px;
+      margin-bottom: 5px;
+      text-align: center;
+    }
+
+
+    .right {
+      width: 65%;
+      padding: 40px 40px;
+      background: #ffffff;
+    }
+
+    .section {
+      margin-bottom: 25px;
+    }
+
+    .section h3 {
+      color: #4a90e2;
+      border-left: 5px solid #4a90e2;
+      padding-left: 10px;
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .section p {
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    ul {
+      list-style: disc;
+      padding-left: 20px;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 13px;
+      color: #555;
+      margin-top: 20px;
+    }
+
+    .resume:hover .left {
+      background: linear-gradient(160deg, #7b4397, #dc2430);
+      transition: 1s;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="resume">
+    <div class="left">
+      <img src="resume image.png" alt="Profile Photo">
+      <h2>Mohit pachauri</h2>
+      <p>Frontend Developer</p>
+
+      <div class="contact">
+        <h3>Contact</h3>
+        <p><strong>Email:</strong> mohitpachauri095@gmail.com</p>
+        <p><strong>Phone:</strong> +91 9528680119</p>
+        <p><strong>Location:</strong> mathura, Uttar Pradesh</p>
+      </div>
+
+      <div class="skills">
+        <h3>Skills</h3>
+        <ul>
+          <li>HTML / CSS / JS</li>
+          <li>React.js</li>
+          <li>Java</li>
+          <li>Bootstrap </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="section">
+        <h3>About Me</h3>
+        <p>Creative front-end developer passionate about crafting elegant, user-friendly designs. I specialize in responsive layouts and modern web animations.</p>
+      </div>
+
+      <div class="section">
+        <h3>Education</h3>
+        <p><strong>B.Tech in Computer Science</strong><br>Gla University (2025 - 2028)</p>
+      </div>
+
+      <div class="section">
+        <h3>Experience</h3>
+        <p><strong>Frontend Developer Intern</strong><br>Creative Minds Pvt. Ltd. (2025-till)</p>
+        <ul>
+          <li>Developed visually engaging interfaces with CSS animations.</li>
+          <li>Improved user experience and page performance.</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h3>Projects</h3>
+        <ul>
+          <li><strong>Personal Portfolio:</strong> A responsive portfolio showcasing creative works.</li>
+          <li><strong>Animated Resume:</strong> Built using pure HTML & CSS transitions.</li>
+        </ul>
+      </div>
+
+      <div class="footer">
+        © 2025 Mohit pachauri| All Rights Reserved
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

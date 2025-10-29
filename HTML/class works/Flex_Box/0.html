@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            text-align: center;
+            background-color: rgb(229, 13, 13);
+            color: white;
+        }
+        :hover h1{
+            background-color: black;
+            color: white;
+            font: 100px;
+        }
+        .container{
+            border: 5px solid rgb(0, 0, 0);
+            border-radius: 20px;
+            background-color: rgb(45, 44, 44);
+            width: 300px;
+            height: 250px;
+            display: flex;
+            /* justify-content: center; */
+            flex-wrap: wrap;
+        }
+        .box{
+            border: 5px solid orange;
+            border-radius: 18px;
+            background-color: yellow;
+            width: 80px;
+            height: 50px;
+            margin-top: 5px;
+            text-align: center;
+            padding: 1px;
+            flex-wrap: wrap;  
+        }
+
+    </style>
+</head>
+<body>
+    <h1> Flex   Box</h1>
+    <div class="container" id="flex">
+        <div class="box">
+            <h2>1</h2>
+        </div>
+        <div class="box">
+        <h2>2</h2>
+        </div>
+        <div class="box">
+            <h2>3</h2>
+                <div class="box">
+            <h2>4</h2>
+        </div>
+        <div class="box">
+        <h2>5</h2>
+        </div>
+        
+        </div>
+    </div>
+</body>
+</html>
