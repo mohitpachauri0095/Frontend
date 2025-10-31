@@ -1,3 +1,6 @@
-const myname ="mohit pachauri ji";
+// 
 
-myname =23;
+let s=8;
+console.log(s)
+const q= "mohitpachauri";
+console.log(q)
