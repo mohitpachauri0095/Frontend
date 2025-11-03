@@ -1,0 +1,13 @@
+function greet(name){
+    return "hello, "+ name +"!";
+
+}
+function add(a, b){
+    return a+b;
+
+}
+function isEven(num){
+    return num % 2===0;
+
+}
+greet("mohit ji")
