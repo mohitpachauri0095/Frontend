@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO-do-List</title>
+    <style>
+        /* .momo-signature-regular {
+  font-family: "Momo Signature", cursive;
+  font-weight: 400;
+  font-style: normal; */
+
+
+        body{
+             font-family: "Momo Signature", cursive;
+  font-weight: 400;
+  font-style: normal;
+            /* font-family: Arial, Helvetica, sans-serif; */
+            max-width: 600px;
+            margin: 0 auto;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #141313;
+          
+
+        }
+        /* .container{
+            height: 500px;
+            width: 500px;
+            background-image: url(WhatsApp\ Image\ 2025-11-09\ at\ 13.36.07_ab0e9894.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+            
+        } */
+        img{
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            position: relative;
+            
+        }
+        h1{
+            text-align: center;
+            color: #d8d8d8;
+        }
+        #taskInput {
+            margin-left: 150px;
+            width: 40%;
+            padding: 10px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+        }
+        #addTaskBtn {
+            padding: 10px 20px;
+            background-color: #6d39a5;
+            color: rgb(183, 178, 190);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #taskList {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+        #taskList li {
+            background-color: white;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .deleteBtn {
+            background-color: #fa1703;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            padding: 5px 10px;
+        }
+
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+                <h1> <u>ToDo List</u></h1>
+        <input type="text" id="taskInput" placeholder="Enter a task">
+        <button id ="addTaskBtn">Add task   </button>
+        <ul id="taskList">  </ul>
+       <img src="WhatsApp Image 2025-11-09 at 13.36.07_ab0e9894.jpg" alt="">
+        </ul>
+        <script>
+            const taskInput = document.getElementById('taskInput');
+            const addTaskBtn = document.getElementById('addTaskBtn');
+            const taskList = document.getElementById('taskList');
+            addTaskBtn.addEventListener('click', () => {
+                const taskText = taskInput.value.trim();
+                if (taskText !== '') {
+                    const li = document.createElement('li');
+                    li.textContent = taskText;
+
+                    const deleteBtn = document.createElement('button');
+                    deleteBtn.textContent = 'Delete';
+                    deleteBtn.className = 'deleteBtn';
+                    deleteBtn.addEventListener('click', () => {
+                        taskList.removeChild(li);
+                    });
+
+                    li.appendChild(deleteBtn);
+                    taskList.appendChild(li);
+                    taskInput.value = '';
+                }
+            });
+
+        </script>
+
+
+    </div>
+</body>
+</html>
