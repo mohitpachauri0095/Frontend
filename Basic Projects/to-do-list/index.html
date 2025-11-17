@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do-list</title>
+    <style>
+             body{
+            font-family: "Momo Signature", cursive;
+            font-weight: 400;
+            font-style: normal;
+            max-width: 600px;
+            margin: 0 auto;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #141313;
+        }
+               img{
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            position: relative;
+            
+        }
+           h1{
+            text-align: center;
+            color: #d8d8d8;
+        }
+            #input {
+            margin-left: 150px;
+            width: 40%;
+            padding: 10px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+        }
+          #addTaskBtn {
+            padding: 10px 20px;
+            background-color: #6d39a5;
+            color: rgb(183, 178, 190);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+                <h1> <u>ToDo List</u></h1>
+
+        <input type="text" id="button" placeholder="Enter a task">
+        <button onclick="addTask()">Add task   </button>
+        <ul id="taskList">  </ul>
+       <img src="WhatsApp Image 2025-11-09 at 13.36.07_ab0e9894.jpg" alt="">
+        </ul>
+    <script>
+        function addTask() {
+    let input = document.getElementById("text");
+    let taskText = input.value.trim();
+    if (taskText === "") return;
+    input.value = "";
+
+    let li = document.createElement("li");
+    li.textContent = taskText;
+
+    let deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "Delete";
+    deleteBtn.onclick = function() {
+        li.remove();
+    };
+
+    li.append(" ", deleteBtn);
+    document.getElementById("taskList").appendChild(li);
+}
+    </script>
+</body>
+</html>
