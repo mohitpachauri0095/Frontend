@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .small-box{
+            height: 200px;
+            width: 200px;
+            background-color: blueviolet;
+            border-radius: 16px;
+            border: 1px solid ;
+            transition: 0.9 ease-in;
+        }
+        .boxy-box{
+            height: 400px;
+            width: 400px;
+            background-color: rgb(201, 153, 21);
+            border-radius: 50%;
+            background-image: url("pachauri.jpg");
+            background-position: center;
+            background-size: cover;
+                  
+        }
+    </style>
+</head>
+<body>
+    <div class="small-box big-box" id="box"></div>
+    <button class="btn">Click Me</button>
+    <script>
+        const box =document.getElementById("box");
+        const btn = document.querySelector(".btn");
+
+        btn.addEventListener("click", function() {
+            // box.style.height = "400px";
+            // box.style.width="400px";
+            // box.style.backgroundColor ="teal";
+            // box.style.borderRadius ="50%";
+            box.classList.toggle("boxy-box");
+            box.classList.toggle("small-box");
+            
+        });
+    </script>
+
+    
+</body>
+</html>

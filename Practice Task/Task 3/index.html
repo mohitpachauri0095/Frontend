@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        body{
+            
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: rgb(22, 33, 38);
+            color: white;
+            text-align: center;
+
+            
+        }
+        .form{
+            border: 2px solid black;
+            width: 300px;
+            padding: 20px;
+            margin: auto;
+            margin-top: 100px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 5px 5px 15px rgb(3, 104, 245);
+            
+            
+     
+}
+
+        
+        input{
+            width: 250px;
+            height: 30px;
+            border-radius: 5px;
+            border: 1px solid black;
+            padding: 5px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            background-color: white;
+            color: black;
+            outline: none;
+            box-shadow: 0  5px rgb(42, 65, 96);
+            transition: box-shadow 0.3s ease-in-out;
+            
+            
+            
+        }
+        button{
+            width: 100px;
+            height: 30px;
+            border-radius: 5px;
+            background-color: rgb(14, 68, 86);
+            color: rgb(252, 254, 254);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 1px rgb(105, 20, 99);
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        button:hover{
+            box-shadow: 0 5px rgb(105, 20, 99);
+            transform: translateY(-2px);
+
+        }
+    </style>
+</head>
+<body>
+    <div class="form">
+    <h1>Login Form</h1>
+    <form action="">
+        <label for="comapany">COMPANY NAME</label><br>
+        <input type="text" id="comapany" name="comapany" placeholder="Enter your comapany name"><br><br>
+        <label for="Moto">COMAPANY MOTO</label><br>
+        <input type="text" id="Moto" name="Moto" placeholder="Enter your comapany moto"><br><br>
+        <label for="Photo">Image Url</label><br>
+        <input type="photo" id="Photo" name="Photo" placeholder="Enter your url"><br><br>
+        <button type="submit">Login</button>
+
+
+
+    </form>
+
+</body>
+<script>
+let btn = document.querySelector("button");
+         btn.addEventListener("click", function(e){
+            e.preventDefault();
+            btn.style.height = "200px";
+            btn.style.width = "200px";
+            btn.style.background = "rgb(255, 255, 255)";
+            btn.style.border = "1px solid black"
+            btn.style. backgroundimage = url("https://wallpapers.com/images/hd/coding-inspirational-quote-pfuj3njhxxcd1ugk.jpg");
+            btn.style.backgroundSize = "cover";
+
+            btn.style.backgroundPosition = "center";
+            btn.style.backgroundImage = "url('https://www.shutterstock.com/image-vector/life-hacks-sign-stamp-on-260nw-1358633978.jpg')";
+            btn.style.transition = "all 0.3s ease-in-out";
+            btn.style.boxShadow = "0 5px rgb(105, 20, 99)";
+            btn.style.transform = "scale(1.1)";
+            btn.style.opacity = "0.8";
+
+
+         });
+         btn.addEventListener("transitionend", function() {
+            btn.style.height = "30px";
+            btn.style.width = "100px";
+            btn.style.backgroundColor = "rgb(14, 68, 86)";
+            btn.style.border = "none";
+            btn.style.backgroundImage = "none";
+            btn.style.boxShadow = "0 1px rgb(105, 20, 99)";
+            btn.style.transform = "scale(1)";
+            btn.style.opacity = "1";
+         });
+         btn.addEventListener("click", function() {
+            alert("Form Submitted Successfully!");
+         });
+         btn.addEventListener("transitionend", function() {
+            console.log("Transition ended");
+         });
+         btn.addEventListener("click", function() {
+            console.log("Button clicked");
+         });   
+          
+
+
+</script>
+
+
+</style>
+</html>
