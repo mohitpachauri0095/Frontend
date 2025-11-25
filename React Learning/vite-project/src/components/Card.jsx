@@ -1,7 +1,15 @@
-im
-function Card(){
-    return(
-        <h1> Card Title</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt aperiam vitae debitis dicta sapiente enim fugit consequuntur fugiat sit nisi quas quia dolore quisquam ea, quos dolores, totam quam eius.</p>
-    )
+function Card() {
+  return (
+    <div className="card">
+      <h2>Mohit Pachauri </h2>
+      <p> Welcome to my card component!</p>
+      <div class = "img">
+        
+      </div>
+    </div>
+    
+    
+  );
 }
+
+export default Card;

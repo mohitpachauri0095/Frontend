@@ -1,0 +1,43 @@
+.app{
+    margin-left: 100px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    height: 400px;
+    max-width: 300px;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+        
+
+}
+.img{
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 16px;
+   
+}
+    h2{
+        margin-top: 0;
+        font-size: 1.5em;
+    
+    }
+    p{
+        color: #666;
+        font-size: 1em;
+    }
+.card{
+    border: 1px solid #ddd; 
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 16px;    
+    background-color: rgb(242, 242, 243);
+}
+.card h2{
+    margin-top: 0;
+    font-size: 1.5em;
+}
+.card p{
+    color: #666;
+    font-size: 1em;
+}
