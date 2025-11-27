@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Animated Landing Page</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #0f172a;
+    color: white;
+    overflow-x: hidden;
+  }
+  @keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes floating {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+    100% { transform: translateY(0px); }
+  }
+
+  header {
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: fadeIn 1s ease-in-out;
+  }
+
+  .logo {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  nav a {
+    margin-left: 20px;
+    color: #cbd5e1;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .hero {
+    height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+  }
+
+  .hero-text {
+    max-width: 550px;
+    animation: fadeIn 1.3s ease-in-out;
+  }
+
+  .hero-text h1 {
+    font-size: 52px;
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  .hero-text p {
+    margin: 20px 0;
+    color: #cbd5e1;
+    font-size: 18px;
+  }
+
+  .btn {
+    background: #6366f1;
+    border: none;
+    padding: 14px 26px;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  .btn:hover {
+    background: #818cf8;
+  }
+  .illustration {
+    width: 420px;
+    height: 420px;
+    background: radial-gradient(circle, #818cf8, #4f46e5);
+    border-radius: 50%;
+    filter: blur(1px);
+    animation: floating 4s ease-in-out infinite;
+  }
+
+  
+  .glow {
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 300px;
+    height: 300px;
+    background: #4f46e5;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.4;
+    animation: floating 6s ease-in-out infinite;
+  }
+
+  @media(max-width: 900px) {
+    .hero {
+      flex-direction: column-reverse;
+      text-align: center;
+      height: auto;
+      gap: 40px;
+      padding: 40px 20px;
+    }
+
+    .illustration {
+      width: 300px;
+      height: 300px;
+    }
+
+    .hero-text h1 { font-size: 36px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="glow"></div>
+
+<header>
+  <div class="logo">ANIMATE</div>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-text">
+    <h1> Hello ! this is Mohit pachauri and i am created Beautiful Animated Landing Page</h1>
+    <p>Hi, my name is MohitPachauri . I am from [Mathura].
+I enjoy learning new things, especially in technology / coding / design.
+I am hard-working, positive, and always try to improve myself.
+Nice to meet you!</p>
+    <button class="btn" >Get Started </button>
+  </div>
+
+  <div class="illustration"></div>
+</section>
+
+</body>
+</html>
