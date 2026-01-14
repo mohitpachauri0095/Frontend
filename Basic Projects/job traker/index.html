@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JobTrack</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>💼 JobTrack</h1>
+
+<div class="dashboard">
+  <div class="card">Total: <span id="total">0</span></div>
+  <div class="card applied">Applied: <span id="applied">0</span></div>
+  <div class="card interview">Interview: <span id="interview">0</span></div>
+  <div class="card selected">Selected: <span id="selected">0</span></div>
+</div>
+
+<form id="jobForm">
+  <input type="text" id="company" placeholder="Company Name" required>
+  <input type="text" id="role" placeholder="Job Role" required>
+  <select id="status">
+    <option>Applied</option>
+    <option>Interview</option>
+    <option>Selected</option>
+    <option>Rejected</option>
+  </select>
+  <button>Add Job</button>
+</form>
+
+<input type="text" id="search" placeholder="Search by company">
+
+<ul id="jobList"></ul>
+
+<script src="script.js"></script>
+</body>
+</html>
