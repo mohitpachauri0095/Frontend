@@ -9,8 +9,15 @@ let arr = [
 //     console.log(arr);
 //     }
 // }
-arr.forEach(data => {
-    data.forEach(val=> {
-        console.log(val);
-    })
-})
+
+
+// arr.forEach(data => {
+//     data.forEach(val=> {
+//         console.log(val);
+//     })
+// })
+
+for (let ar of arr){
+    console.log(ar);
+
+}
