@@ -86,7 +86,7 @@
 // console.log(result);
   
 
-
+ 
 function analyzeScores(scoresArray) {
   let excellentCount = 0;
   let passCount = 0;
