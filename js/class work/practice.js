@@ -84,7 +84,7 @@
 
 // const result = analyzeScores(scores);
 // console.log(result);
-
+ 
 
 
 function analyzeScores(scoresArray) {
