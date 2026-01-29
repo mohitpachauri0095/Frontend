@@ -81,7 +81,7 @@
 // ----------------------------------------
 // EXPECTED USAGE
 // ----------------------------------------
-
+  
 // const result = analyzeScores(scores);
 // console.log(result);
  
