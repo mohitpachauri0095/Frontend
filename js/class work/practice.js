@@ -85,7 +85,7 @@
 // const result = analyzeScores(scores);
 // console.log(result);
     
-  
+      
  
 function analyzeScores(scoresArray) {
   let excellentCount = 0;
