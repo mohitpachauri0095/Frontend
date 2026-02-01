@@ -12,7 +12,7 @@
 
 function greet( username ="Guest"){
  return "hello" +username +"!"; 
-}
+}   
 const mygreeting =greet();
 const mohitgreeting = greet("mohit's");
 console.log(mygreeting)
