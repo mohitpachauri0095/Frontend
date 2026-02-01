@@ -9,7 +9,7 @@
 // }
 // const voter1 = validvoter(17);
 // console.log();
-
+ 
 function greet( username ="Guest"){
  return "hello" +username +"!"; 
 }   
