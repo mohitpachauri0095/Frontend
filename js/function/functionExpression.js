@@ -16,4 +16,4 @@ function greet( username ="Guest"){
 const mygreeting =greet(); 
 const mohitgreeting = greet("mohit's");
 console.log(mygreeting)
-console.log(mohitgreeting)  
+console.log(mohitgreeting)   
