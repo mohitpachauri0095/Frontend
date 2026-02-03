@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Landing Page</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(120deg, #0f172a, #1e293b);
+  color: white;
+  text-align: center;
+}
+
+/* Container animation */
+.container {
+  animation: fadeIn 2s ease-in-out;
+}
+
+/* Animated gradient title */
+h1 {
+  font-size: 60px;
+  background: linear-gradient(90deg, #38bdf8, #a78bfa, #f472b6);
+  background-size: 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMove 5s infinite linear;
+}
+
+/* Subtitle */
+p {
+  margin-top: 15px;
+  font-size: 20px;
+  opacity: 0.8;
+}
+
+/* Button animation */
+button {
+  margin-top: 30px;
+  padding: 12px 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  background: #38bdf8;
+  color: black;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: #a78bfa;
+  transform: scale(1.1);
+}
+
+/* Animations */
+@keyframes gradientMove {
+  0% { background-position: 0%; }
+  100% { background-position: 300%; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>My Project</h1>
+  <p>my gallary and my Landing Page. Mohit Pachauri </p>
+  <button>Get Started</button>
+</div>
+
+</body>
+</html>
