@@ -19,7 +19,7 @@ console.log (12**12)
 
 let m=5;
 console.log(m++);
-console.log(m);
+console.log(m); 
 
 console.log(1>6);
 console.log(1>=6);
