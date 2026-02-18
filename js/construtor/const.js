@@ -9,6 +9,6 @@ person.prototype.introduce = function(){
  
 };     
     
-const person1 =new person("mohit", 41);
+const person1 =new person("mohit", 51);
 console.log(person1);    
 
