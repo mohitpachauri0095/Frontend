@@ -11,4 +11,4 @@ person.prototype.introduce = function(){
     
 const person1 =new person("mohit", 61);
 console.log(person1);     
-
+ 
