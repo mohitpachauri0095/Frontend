@@ -7,7 +7,7 @@ const person = function (name, age) {
 person.prototype.introduce = function(){
     console.log(`hi my name is &{this.firstName}, and i am ${this.age} year old, i was born in ${this.birthyear}`);
                  
-};           
+};              
     
 const person1 =new person("mohit", 61);
 console.log(person1);     
