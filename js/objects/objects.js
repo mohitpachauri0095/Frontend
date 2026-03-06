@@ -10,6 +10,9 @@ let abc ={
     name : "mohit pachauri ",
     age :22,
     location : "U.p",
-    contory : "InDIA"
+    contory : "InDIA",
+    fun: function() {
+        console.log("i am function")
+    }
 }
-console.log(abc);
+console.log(abc.fun);
