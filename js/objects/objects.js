@@ -27,3 +27,9 @@ let abc ={
 for (let i in abc){
     console.log(i);
 }
+
+//  value ke liyeh 
+
+for (let u in abc){
+    console.log(abc[u]);
+}
