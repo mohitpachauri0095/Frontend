@@ -14,4 +14,8 @@ let arr = [
     {user:4, name: "rajeshkhannaa", age:252}
 
 ]
+
+let [{name},  , {name:name1}] =arr;
+console.log(name);
+console.log(name1);
 console.log(arr);
