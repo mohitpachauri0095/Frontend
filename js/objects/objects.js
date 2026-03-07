@@ -13,6 +13,7 @@ let abc ={
     contory : "InDIA",
     fun: function() {
         console.log("i am function")
-    }
+    },
+    arr:[20,30,40]
 }
-console.log(abc.fun);
+console.log(abc.arr);
