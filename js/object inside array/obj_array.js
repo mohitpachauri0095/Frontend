@@ -18,4 +18,16 @@ let arr = [
 let [{name},  , {name:name1}] =arr;
 console.log(name);
 console.log(name1);
-console.log(arr);
+console.log(arr);4
+
+let arr2 =[
+    {user:5, name: "preet"},
+      {user:6, name: "preet"},
+        {user:7, name: "preet"},
+          {user:8, name: "preet"},
+
+]
+let [{ name2},  , {name2:name3}] =arr2;
+console.log(name);
+console.log(name2);
+console.log(arr2); 
