@@ -10,7 +10,7 @@
 
 let obj = {
     name : "MOhitJI",
-    age : 25,
+    age : 26,
     location : " U.P. Macthura",
     
     }
