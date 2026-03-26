@@ -7,7 +7,7 @@
 //     arr:[20,30,40]
 // }
 // console.log(obj.fun);
-
+ 
 let obj = {
     name : "MOhitJI",
     age : 26 ,
