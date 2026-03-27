@@ -6,7 +6,7 @@
 //     }, 
 //     arr:[20,30,40]
 // }
-// console.log(obj.fun);
+// console.log(obj.fun);  
    
 let obj = { 
     name : "MOhitJI",
