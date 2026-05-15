@@ -5,7 +5,7 @@ for(let i=0; i< rest.length; i++){
 }
 return total;       
 }   
-
+ 
 
 
 
