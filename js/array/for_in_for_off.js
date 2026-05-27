@@ -5,7 +5,7 @@ for (let ar in arr) {
     console.log(ar);      
 
     for (let ar of arr) {
-        console.log(arr);
+        console.log(arr);   
     }
 }                                     
 
