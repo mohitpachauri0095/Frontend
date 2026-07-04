@@ -4,5 +4,7 @@ for (let ar in arr) {
     for (let ar of arr) {        
         console.log(arr);                      
     }  
-}                                           
+}                             
+
+   
 
