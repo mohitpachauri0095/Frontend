@@ -5,4 +5,4 @@ for (let ar in arr) {
         console.log(arr);                      
     }  
 }                    
- 
+     
