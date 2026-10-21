@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#10100e">
+    <meta name="description" content="Mohit Pachauri — computer science student and aspiring software engineer from Mathura, India.">
+    <title>Mohit Pachauri — Portfolio</title>
+    <style>
+        :root{
+            color-scheme: dark;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #10100e;
+            color: #f5f4ef;
+            font-synthesis: none;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            --paper: #f5f4ef;
+            --muted: #96958d;
+            --yellow: #f2cf37;
+            --black: #10100e;
+            --line: rgba(245, 244, 239, .15);
+        }
+
+        *{ box-sizing: border-box; }
+
+        body{
+            min-width: 320px;
+            min-height: 100vh;
+            margin: 0;
+            overflow-x: hidden;
+            background-color: var(--black);
+            background-image:
+                linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+            background-size: 64px 64px;
+        }
+
+        button, a{ font: inherit; }
+
+        .intro-screen{
+            position: fixed;
+            z-index: 5;
+            inset: 0;
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+            background: var(--black);
+        }
+
+        .intro-screen::before,
+        .intro-screen::after{
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: var(--line);
+            content: "";
+        }
+
+        .intro-screen::before{ left: max(7vw, calc((100vw - 1200px) / 2)); }
+        .intro-screen::after{ right: max(7vw, calc((100vw - 1200px) / 2)); }
+
+        .intro-content{
+            width: min(700px, 82vw);
+            padding: 58px 0;
+            animation: intro-arrive 850ms cubic-bezier(.2, .75, .2, 1) both;
+        }
+
+        .intro-meta,
+        .site-meta,
+        .card-topline,
+        .card-footer,
+        .back-heading{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .intro-meta,
+        .site-meta,
+        .card-topline,
+        .card-footer{
+            color: var(--muted);
+            font-size: .69rem;
+            font-weight: 650;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+        }
+
+        .intro-meta span:last-child{ color: var(--yellow); }
+
+        .intro-rule{
+            width: 100%;
+            height: 1px;
+            margin: 27px 0 38px;
+            background: var(--line);
+            transform-origin: left;
+            animation: rule-draw 900ms 250ms ease both;
+        }
+
+        .intro-kicker,
+        .section-label{
+            margin: 0;
+            color: var(--yellow);
+            font-size: .72rem;
+            font-weight: 700;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+        }
+
+        .intro-title{
+            margin: 16px 0 0;
+            font-size: clamp(3.5rem, 10vw, 7.5rem);
+            font-weight: 700;
+            letter-spacing: -.085em;
+            line-height: .91;
+        }
+
+        .intro-title span{
+            display: block;
+            color: var(--yellow);
+        }
+
+        .intro-bottom{
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            gap: 24px;
+            margin-top: 38px;
+        }
+
+        .intro-location{
+            max-width: 245px;
+            margin: 0;
+            color: #c3c1b8;
+            font-size: .94rem;
+            line-height: 1.65;
+        }
+
+        .open-button{
+            display: inline-flex;
+            min-height: 54px;
+            flex: 0 0 auto;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+            padding: 0 19px;
+            border: 1px solid var(--yellow);
+            background: var(--yellow);
+            color: var(--black);
+            cursor: pointer;
+            font-size: .82rem;
+            font-weight: 750;
+            transition: background 180ms ease, color 180ms ease, gap 180ms ease;
+        }
+
+        .open-button:hover{
+            gap: 24px;
+            background: transparent;
+            color: var(--yellow);
+        }
+
+        .open-button svg{ width: 17px; height: 17px; }
+
+        .intro-screen.is-opening{
+            animation: curtain-open 760ms cubic-bezier(.77, 0, .18, 1) forwards;
+            pointer-events: none;
+        }
+
+        .intro-screen.is-opening .intro-content{
+            animation: intro-exit 360ms ease forwards;
+        }
+
+        .portfolio{
+            display: grid;
+            min-height: 100svh;
+            grid-template-rows: auto 1fr auto;
+            padding: 28px max(7vw, calc((100vw - 1200px) / 2));
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .portfolio.is-visible{
+            animation: portfolio-arrive 650ms 120ms ease both;
+        }
+
+        .portfolio-header{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 38px;
+        }
+
+        .wordmark{
+            color: var(--paper);
+            font-size: .78rem;
+            font-weight: 750;
+            letter-spacing: .08em;
+            text-decoration: none;
+        }
+
+        .wordmark span{ color: var(--yellow); }
+
+        .site-meta{ gap: 10px; }
+
+        .site-meta::before{
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--yellow);
+            content: "";
+        }
+
+        .card-stage{
+            display: grid;
+            place-items: center;
+            padding: 28px 0;
+            perspective: 1400px;
+        }
+
+        .profile-shell{
+            width: min(900px, 100%);
+            height: 540px;
+        }
+
+        .profile-card{
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 800ms cubic-bezier(.2, .72, .2, 1);
+        }
+
+        .profile-shell.is-flipped .profile-card{ transform: rotateY(180deg); }
+
+        .profile-face{
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            padding: 30px 34px;
+            border: 1px solid var(--line);
+            background: #171714;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+
+        .profile-face::before{
+            position: absolute;
+            inset: 0 auto 0 0;
+            width: 3px;
+            background: var(--yellow);
+            content: "";
+        }
+
+        .card-topline{ min-height: 28px; }
+        .card-topline span:last-child{ color: var(--yellow); }
+
+        .front-content{
+            display: grid;
+            flex: 1;
+            grid-template-columns: 290px minmax(0, 1fr);
+            align-items: center;
+            gap: clamp(28px, 6vw, 74px);
+            padding: 27px 4px;
+        }
+
+        .portrait-wrap{
+            position: relative;
+            width: 100%;
+            height: 325px;
+            padding: 0 12px 12px 0;
+        }
+
+        .portrait-wrap::before{
+            position: absolute;
+            inset: 12px 0 0 12px;
+            border: 1px solid var(--yellow);
+            content: "";
+            transition: transform 300ms ease;
+        }
+
+        .profile-shell:hover .portrait-wrap::before{ transform: translate(4px, 4px); }
+
+        .portrait{
+            position: relative;
+            display: block;
+            width: 100%;
+            height: 100%;
+            border: 1px solid rgba(255,255,255,.15);
+            background: #25251f;
+            object-fit: cover;
+            object-position: center 30%;
+            filter: grayscale(100%);
+        }
+
+        .identity{ align-self: center; }
+
+        .identity .section-label{ margin-bottom: 16px; }
+
+        h1{
+            max-width: 490px;
+            margin: 0;
+            font-size: clamp(2.8rem, 6vw, 5rem);
+            font-weight: 700;
+            letter-spacing: -.075em;
+            line-height: .96;
+        }
+
+        .role{
+            margin: 17px 0 0;
+            color: #d4d2c9;
+            font-size: 1rem;
+            line-height: 1.55;
+        }
+
+        .location{
+            margin: 10px 0 0;
+            color: var(--muted);
+            font-size: .86rem;
+        }
+
+        .bio{
+            max-width: 370px;
+            margin: 23px 0 0;
+            color: #bdbbb2;
+            font-size: .9rem;
+            line-height: 1.75;
+        }
+
+        .card-footer{
+            min-height: 55px;
+            border-top: 1px solid var(--line);
+        }
+
+        .social-links{
+            display: flex;
+            gap: 22px;
+        }
+
+        .social-links a,
+        .email-link{
+            color: var(--paper);
+            font-size: .78rem;
+            text-decoration-color: rgba(242, 207, 55, .55);
+            text-underline-offset: 4px;
+            transition: color 160ms ease;
+        }
+
+        .social-links a:hover,
+        .email-link:hover{ color: var(--yellow); }
+
+        .flip-button{
+            display: inline-flex;
+            min-height: 42px;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 0 2px;
+            border: 0;
+            background: transparent;
+            color: var(--yellow);
+            cursor: pointer;
+            font-size: .78rem;
+            font-weight: 700;
+        }
+
+        .flip-button svg{
+            width: 16px;
+            height: 16px;
+            transition: transform 180ms ease;
+        }
+
+        .flip-button:hover svg{ transform: translateX(4px); }
+        .profile-back .flip-button:hover svg{ transform: translateX(-4px); }
+
+        .profile-back{
+            transform: rotateY(180deg);
+            padding: 32px 38px;
+        }
+
+        .back-heading{
+            min-height: 48px;
+            margin-bottom: 24px;
+        }
+
+        .back-title{
+            margin: 8px 0 0;
+            font-size: 2rem;
+            letter-spacing: -.055em;
+        }
+
+        .back-grid{
+            display: grid;
+            flex: 1;
+            grid-template-columns: 1fr 1fr;
+            gap: 42px;
+        }
+
+        .back-column{
+            padding-top: 19px;
+            border-top: 1px solid var(--line);
+        }
+
+        .section-label{ margin-bottom: 15px; }
+
+        .skill-list{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill{
+            padding: 8px 10px;
+            border: 1px solid rgba(245,244,239,.16);
+            color: #e5e3da;
+            font-size: .77rem;
+        }
+
+        .project-title{
+            margin: 0;
+            font-size: 1.15rem;
+            font-weight: 650;
+            letter-spacing: -.025em;
+        }
+
+        .project-description{
+            margin: 11px 0 21px;
+            color: #bbb9b0;
+            font-size: .84rem;
+            line-height: 1.7;
+        }
+
+        .education{
+            padding-top: 17px;
+            border-top: 1px solid var(--line);
+        }
+
+        .education p{
+            margin: 0;
+            font-size: .86rem;
+            font-weight: 650;
+            line-height: 1.5;
+        }
+
+        .education span{
+            display: block;
+            margin-top: 4px;
+            color: var(--muted);
+            font-size: .78rem;
+            font-weight: 400;
+        }
+
+        .back-bottom{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 16px;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: .77rem;
+        }
+
+        .portfolio-footer{
+            display: flex;
+            justify-content: space-between;
+            padding-top: 13px;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: .68rem;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+
+        :focus-visible{
+            outline: 2px solid var(--yellow);
+            outline-offset: 4px;
+        }
+
+        @keyframes intro-arrive{
+            from{ opacity: 0; transform: translateY(16px); }
+            to{ opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes rule-draw{
+            from{ transform: scaleX(0); }
+            to{ transform: scaleX(1); }
+        }
+
+        @keyframes intro-exit{
+            to{ opacity: 0; transform: translateY(-18px); }
+        }
+
+        @keyframes curtain-open{
+            to{ clip-path: inset(50% 0 50%); visibility: hidden; }
+        }
+
+        @keyframes portfolio-arrive{
+            from{ opacity: 0; visibility: visible; }
+            to{ opacity: 1; visibility: visible; }
+        }
+
+        @media (max-width: 720px){
+            .portfolio{ padding: 20px 18px; }
+            .card-stage{ padding: 24px 0; }
+            .profile-shell{ height: 620px; }
+            .profile-face{ padding: 23px; }
+            .front-content{
+                grid-template-columns: minmax(115px, 34%) minmax(0, 1fr);
+                gap: 24px;
+            }
+            .portrait-wrap{ height: 270px; }
+            h1{ font-size: clamp(2.4rem, 8vw, 3.8rem); }
+            .role{ font-size: .88rem; }
+            .bio{ font-size: .83rem; }
+            .profile-back{ padding: 25px; }
+            .back-grid{ gap: 24px; }
+        }
+
+        @media (max-width: 500px){
+            .intro-screen::before{ left: 20px; }
+            .intro-screen::after{ right: 20px; }
+            .intro-content{ width: calc(100% - 72px); }
+            .intro-meta{ font-size: .58rem; }
+            .intro-rule{ margin: 24px 0 32px; }
+            .intro-title{ font-size: clamp(3.2rem, 17vw, 5.5rem); }
+            .intro-bottom{ align-items: flex-start; flex-direction: column; }
+            .open-button{ min-height: 50px; }
+            .portfolio{ padding: 17px 14px; }
+            .site-meta{ font-size: .58rem; }
+            .card-stage{ padding: 16px 0; }
+            .profile-shell{ height: auto; min-height: 690px; }
+            .profile-front{ min-height: 690px; }
+            .profile-face{ padding: 19px; }
+            .front-content{
+                grid-template-columns: 1fr;
+                justify-items: start;
+                gap: 21px;
+                padding: 22px 0;
+            }
+            .portrait-wrap{ width: 142px; height: 164px; }
+            .identity .section-label{ margin-bottom: 10px; }
+            h1{ font-size: clamp(2.65rem, 12vw, 3.5rem); }
+            .role{ margin-top: 11px; }
+            .bio{ margin-top: 14px; }
+            .card-footer{ align-items: flex-start; flex-direction: column; justify-content: center; gap: 7px; padding-top: 10px; }
+            .social-links{ gap: 16px; }
+            .flip-button{ min-height: 36px; }
+            .profile-back{ min-height: 690px; padding: 21px; }
+            .back-title{ font-size: 1.7rem; }
+            .back-grid{ grid-template-columns: 1fr; align-content: start; gap: 19px; }
+            .back-column{ padding-top: 14px; }
+            .skill-list{ gap: 6px; }
+            .skill{ padding: 7px 8px; font-size: .72rem; }
+            .project-description{ margin-bottom: 14px; }
+            .back-bottom{ margin-top: 18px; }
+            .portfolio-footer{ font-size: .58rem; }
+        }
+
+        @media (max-height: 720px) and (min-width: 501px){
+            .portfolio{ padding-top: 14px; padding-bottom: 14px; }
+            .profile-shell{ height: min(520px, calc(100svh - 110px)); min-height: 430px; }
+            .profile-face{ padding-top: 22px; padding-bottom: 22px; }
+            .front-content{ padding-top: 16px; padding-bottom: 16px; }
+            .portrait-wrap{ height: min(300px, 34svh); }
+        }
+
+        @media (prefers-reduced-motion: reduce){
+            *,
+            *::before,
+            *::after{
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+                transition-duration: .01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="intro-screen" id="intro" aria-label="Portfolio introduction">
+        <div class="intro-content">
+            <div class="intro-meta">
+                <span>Personal portfolio</span>
+                <span>Mathura, India</span>
+            </div>
+            <div class="intro-rule"></div>
+            <p class="intro-kicker">Computer science · Class of 2028</p>
+            <h1 class="intro-title">Mohit<span>Pachauri.</span></h1>
+            <div class="intro-bottom">
+                <p class="intro-location">Aspiring software engineer.<br>Curious by nature, building with purpose.</p>
+                <button class="open-button" id="open-portfolio" type="button">
+                    <span>Open portfolio</span>
+                    <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 10h13m-5-5 5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <main class="portfolio" id="portfolio" aria-hidden="true" inert>
+        <header class="portfolio-header">
+            <a class="wordmark" href="#" aria-label="Mohit Pachauri home">MP<span>.</span></a>
+            <div class="site-meta">Computer science · 2028</div>
+        </header>
+
+        <div class="card-stage">
+            <div class="profile-shell" id="profile">
+                <div class="profile-card">
+                    <section class="profile-face profile-front" id="profile-front" aria-label="Mohit Pachauri profile">
+                        <div class="card-topline">
+                            <span>Profile / 001</span>
+                            <span>Open to opportunities</span>
+                        </div>
+
+                        <div class="front-content">
+                            <div class="portrait-wrap">
+                                <img class="portrait" src="mohitpachauri%20ji.jpeg" alt="Portrait of Mohit Pachauri">
+                            </div>
+                            <div class="identity">
+                                <p class="section-label">The person behind the code</p>
+                                <h1>Mohit<br>Pachauri</h1>
+                                <p class="role">Computer Science Student<br>Aspiring Software Engineer</p>
+                                <p class="location">Mathura, Uttar Pradesh, India</p>
+                                <p class="bio">Learning the craft of building useful software—from thoughtful interfaces to the systems behind them.</p>
+                            </div>
+                        </div>
+
+                        <footer class="card-footer">
+                            <div class="social-links" aria-label="Professional links">
+                                <a href="mailto:mohitpachauri095@email.com">Email</a>
+                                <a href="https://www.linkedin.com/in/mohit-pachauri-a53599249/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                                <a href="https://github.com/mohitpachauri0095" target="_blank" rel="noopener noreferrer">GitHub</a>
+                            </div>
+                            <button class="flip-button" type="button" data-flip aria-controls="profile-back" aria-expanded="false">
+                                <span>Skills &amp; work</span>
+                                <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 10h13m-5-5 5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </button>
+                        </footer>
+                    </section>
+
+                    <section class="profile-face profile-back" id="profile-back" aria-label="Skills, project, and education" aria-hidden="true" inert>
+                        <div class="back-heading">
+                            <div>
+                                <p class="section-label">Selected details</p>
+                                <h2 class="back-title">Skills &amp; experience</h2>
+                            </div>
+                            <button class="flip-button" type="button" data-flip aria-controls="profile-front" aria-expanded="true">
+                                <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M17 10H4m5 5-5-5 5-5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                <span>Profile</span>
+                            </button>
+                        </div>
+
+                        <div class="back-grid">
+                            <section class="back-column" aria-labelledby="skills-heading">
+                                <h3 class="section-label" id="skills-heading">Tools &amp; technologies</h3>
+                                <div class="skill-list">
+                                    <span class="skill">JavaScript</span>
+                                    <span class="skill">React</span>
+                                    <span class="skill">HTML &amp; CSS</span>
+                                    <span class="skill">Node.js</span>
+                                    <span class="skill">Express.js</span>
+                                    <span class="skill">Java</span>
+                                    <span class="skill">Data structures</span>
+                                    <span class="skill">MongoDB</span>
+                                    <span class="skill">Git &amp; GitHub</span>
+                                </div>
+                            </section>
+
+                            <section class="back-column" aria-labelledby="project-heading">
+                                <h3 class="section-label" id="project-heading">Featured project</h3>
+                                <h4 class="project-title">Digital Notice Board System</h4>
+                                <p class="project-description">A full-stack announcement platform with secure authentication, notice publishing, file uploads, REST APIs, and a responsive dashboard.</p>
+                                <div class="education">
+                                    <h3 class="section-label">Education</h3>
+                                    <p>B.Tech, Computer Science Engineering<span>GLA University · Expected 2028</span></p>
+                                </div>
+                            </section>
+                        </div>
+
+                        <footer class="back-bottom">
+                            <span>Always learning. Always building.</span>
+                            <a class="email-link" href="mailto:mohitpachauri095@email.com">Get in touch ↗</a>
+                        </footer>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+        <footer class="portfolio-footer">
+            <span>Mohit Pachauri</span>
+            <span>Designed with intention</span>
+        </footer>
+    </main>
+
+    <script>
+        const intro = document.querySelector("#intro");
+        const openButton = document.querySelector("#open-portfolio");
+        const portfolio = document.querySelector("#portfolio");
+        const profile = document.querySelector("#profile");
+        const front = document.querySelector("#profile-front");
+        const back = document.querySelector("#profile-back");
+        const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+        openButton.addEventListener("click", () => {
+            openButton.disabled = true;
+            if (reducedMotion.matches) {
+                revealPortfolio();
+                return;
+            }
+            intro.classList.add("is-opening");
+        });
+
+        intro.addEventListener("animationend", (event) => {
+            if (event.target === intro && event.animationName === "curtain-open") {
+                revealPortfolio();
+            }
+        });
+
+        function revealPortfolio() {
+            intro.hidden = true;
+            portfolio.inert = false;
+            portfolio.setAttribute("aria-hidden", "false");
+            portfolio.classList.add("is-visible");
+            portfolio.querySelector(".flip-button").focus();
+        }
+
+        document.querySelectorAll("[data-flip]").forEach((button) => {
+            button.addEventListener("click", () => {
+                const flipped = profile.classList.toggle("is-flipped");
+                front.inert = flipped;
+                back.inert = !flipped;
+                front.setAttribute("aria-hidden", String(flipped));
+                back.setAttribute("aria-hidden", String(!flipped));
+                document.querySelectorAll("[data-flip]").forEach((control) => {
+                    control.setAttribute("aria-expanded", String(flipped));
+                });
+                (flipped ? back : front).querySelector("[data-flip]").focus();
+            });
+        });
+    </script>
+</body>
+</html>
