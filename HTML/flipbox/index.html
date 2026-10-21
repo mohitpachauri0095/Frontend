@@ -18,10 +18,22 @@
             margin-left: 500px;
           border: none;
             border-radius: 30px;
-            
+            perspective: 1000px;
+            animation: cardEnter 800ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
         }
         .container:hover .card{
          transform: rotateY(180deg);
+        }
+
+        @keyframes cardEnter{
+            from{
+                opacity: 0;
+                transform: translateY(24px) scale(0.96);
+            }
+            to{
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
         }
         
         img{
@@ -65,7 +77,15 @@
          height: 100%;
          position: relative;
          transform-style: preserve-3d; 
-         transition: transform 0.6s;  
+         transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        @media (prefers-reduced-motion: reduce){
+            .container,
+            .card{
+                animation: none;
+                transition: none;
+            }
         }
 
     </style>
@@ -76,7 +96,7 @@
             <div id="front" class="side">
          <img src="https://images.pexels.com/photos/1442751/pexels-photo-1442751.jpeg" height="100px">
       
-        <h1>"Hello, Mohit Pachauri.</h1>
+        <h1>"Hello, Mohit Pachauri ji</h1>
         <p> Mathura Uttar Pradesh </p>
             
        
