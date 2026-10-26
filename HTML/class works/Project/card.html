@@ -3,35 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Creative Card Grid</title>
     <style>
-        body{
-            font
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, #0f172a, #1e293b, #334155);
+            font-family: Arial, Helvetica, sans-serif;
+            color: #e2e8f0;
+        }
+
+        .grid {
+            width: min(1100px, 90%);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+            padding: 30px 0;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 18px;
+            padding: 28px 22px;
+            box-shadow: 0 18px 40px rgba(15, 23, 42, 0.35);
+            backdrop-filter: blur(8px);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 22px 50px rgba(15, 23, 42, 0.5);
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            color: #f8fafc;
+        }
+
+        .card p {
+            font-size: 0.98rem;
+            line-height: 1.7;
+            color: #cbd5e1;
+        }
+
+        .card:nth-child(1) {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.25), rgba(14, 165, 233, 0.12));
+        }
+
+        .card:nth-child(2) {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.25), rgba(45, 212, 191, 0.12));
+        }
+
+        .card:nth-child(3) {
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.25), rgba(244, 114, 182, 0.12));
+        }
+
+        .card:nth-child(4) {
+            background: linear-gradient(135deg, rgba(251, 146, 60, 0.25), rgba(249, 115, 22, 0.12));
         }
     </style>
 </head>
 <body>
-    <div class ="grid">
-        <div class ="card">
-        <h3> this mohit </h3>
-        <p> web devloper </p>
-        </div>
+    <div class="grid">
         <div class="card">
-            <h3> this is mohit</h3>
-            <p> this is mohit pachauri</p>
+            <h3>Mohit</h3>
+            <p>Web Developer</p>
         </div>
-        <div class ="card">
-        <h3> this is mophit pachauri </h3>
-        <p> this mohi</p>
-        </div>   
-  
-        
 
         <div class="card">
-            <h3> mohit pachauri</h3>
-            <p> this is mohit </p>
+            <h3>Mohit Pachauri</h3>
+            <p>Creative Frontend Designer</p>
         </div>
 
+        <div class="card">
+            <h3>UI/UX Enthusiast</h3>
+            <p>Focused on clean interfaces and interactive experiences.</p>
+        </div>
+
+        <div class="card">
+            <h3>Designer + Developer</h3>
+            <p>Building modern digital experiences with code and creativity.</p>
+        </div>
     </div>
 </body>
 </html>
