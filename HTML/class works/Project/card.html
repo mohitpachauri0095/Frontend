@@ -45,7 +45,7 @@
             background: rgba(255, 255, 255, 0.06);
             border: 1px solid var(--line);
             border-radius: 22px;
-            padding: 26px 22px 24px;
+            padding: 24px 22px 20px;
             box-shadow: 0 18px 40px rgba(15, 23, 42, 0.38);
             backdrop-filter: blur(10px);
             transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
@@ -65,14 +65,49 @@
             z-index: -1;
         }
 
+        .card::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 20px;
+            right: 20px;
+            height: 2px;
+            background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.9), rgba(255,255,255,0));
+            opacity: 0.8;
+        }
+
         .card:hover {
             transform: translateY(-10px) scale(1.01);
             box-shadow: 0 24px 60px rgba(15, 23, 42, 0.5);
             border-color: rgba(255, 255, 255, 0.22);
         }
 
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 12px;
+            margin-bottom: 16px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            font-size: 0.72rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #f8fafc;
+        }
+
+        .badge::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #7dd3fc, #c084fc);
+            box-shadow: 0 0 12px rgba(125, 211, 252, 0.75);
+        }
+
         .card h3 {
-            font-size: 1.35rem;
+            font-size: 1.4rem;
             margin-bottom: 10px;
             color: #f8fafc;
             letter-spacing: 0.02em;
@@ -104,21 +139,25 @@
 <body>
     <div class="grid">
         <div class="card">
+            <span class="badge">Profile</span>
             <h3>Mohit</h3>
             <p>Web Developer</p>
         </div>
 
         <div class="card">
+            <span class="badge">Name</span>
             <h3>Mohit Pachauri</h3>
             <p>Creative Frontend Designer</p>
         </div>
 
         <div class="card">
+            <span class="badge">Focus</span>
             <h3>UI/UX Enthusiast</h3>
             <p>Focused on clean interfaces and interactive experiences.</p>
         </div>
 
         <div class="card">
+            <span class="badge">Style</span>
             <h3>Designer + Developer</h3>
             <p>Building modern digital experiences with code and creativity.</p>
         </div>
